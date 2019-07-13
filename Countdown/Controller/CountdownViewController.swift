@@ -3,7 +3,7 @@
 
 import UIKit
 
-class CountdownViewController: UIViewController {
+class CountdownViewController: UIViewController, CountdownDelegate {
 
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var startButton: UIButton!
@@ -14,10 +14,21 @@ class CountdownViewController: UIViewController {
         super.viewDidLoad()
 
         self.timeLabel.text = ""
+        self.countdown.delegate = self
     }
 
     @IBAction func onStartTapped() {
         self.countdown.start()
+    }
+
+    // MARK: - CountdownDelegate
+
+    func secondsChanged(countdown: Countdown) {
+        self.timeLabel.text = String(Int(countdown.seconds))
+    }
+
+    func finished(countdown: Countdown) {
+        self.timeLabel.text = "Bing!"
     }
 
 }
