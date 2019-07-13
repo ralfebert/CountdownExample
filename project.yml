@@ -1,0 +1,13 @@
+name: Countdown
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    iOS: "10.0"
+targets:
+  Countdown:
+    type: application
+    platform: iOS
+    sources: [Countdown]
+    settings:
+      base:
+        SWIFT_VERSION: 5.0
